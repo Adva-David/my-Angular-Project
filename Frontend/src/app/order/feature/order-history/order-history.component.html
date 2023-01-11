@@ -1,0 +1,16 @@
+<div
+  *ngIf="orderService.ordersHistory$ | async as history"
+  class="order-h-list"
+>
+  <div *ngFor="let order of history" class="order-h-row">
+    <label><b>Order total price:</b> {{ order.totalPrice }}</label>
+    <label
+      ><b>Order delivery address:</b> {{ order.deliveryCity }},
+      {{ order.deliveryStreet }}</label
+    >
+    <span><b>Delivery date:</b> {{ toDateString(order.deliveryDate) }}</span>
+    <button class="btn small" (click)="showOrderCart(order)">Show order items</button>
+  </div>
+  <div *ngIf="history.length < 1">No orders have been made</div>
+</div>
+<div *ngIf="!orderService.ordersHistory$.value">No orders have been made</div>

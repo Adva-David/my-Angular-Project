@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "esModuleInterop": true,
+    "strict": false,
+    "isolatedModules": false,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": true,
+    "newLine": "LF",
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "strictBindCallApply": true,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "stripInternal": true
+  }
+}

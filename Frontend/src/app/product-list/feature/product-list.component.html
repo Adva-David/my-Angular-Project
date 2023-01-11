@@ -1,0 +1,25 @@
+<div *ngIf="productService.showingProducts$ | async as products">
+  <app-search-bar></app-search-bar>
+  <app-category-bar></app-category-bar>
+  <app-loading-spinner
+    [visible]="products.length <= 0 && !productService.filterQuery"
+  ></app-loading-spinner>
+  <h1 *ngIf="productService.filterQuery && products.length <= 0">
+    No products found
+  </h1>
+  <div class="product_grid" *ngIf="products.length > 0">
+    <div *ngFor="let product of products" class="product_wrapper">
+      <div class="product_card">
+        <img src="{{ product.image }}" />
+        <h2>{{ product.productName }}</h2>
+        <div class="bottom">
+          <span>{{ product.category.categoryName }}</span>
+          <span>{{ product.price }}₪</span>
+        </div>
+        <button class="add_button" (click)="openAddToCart(product)">
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

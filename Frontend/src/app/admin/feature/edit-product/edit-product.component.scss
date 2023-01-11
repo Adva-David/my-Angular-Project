@@ -1,0 +1,14 @@
+@use "../../../../styles.scss" as styles;
+form {
+  @include styles.formStyle();
+  margin-inline: auto;
+  z-index: 1000;
+}
+
+.btn {
+  @include styles.submitButton2();
+}
+
+.btn:hover {
+  @include styles.buttonHover();
+}

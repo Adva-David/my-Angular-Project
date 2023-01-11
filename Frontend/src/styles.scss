@@ -1,0 +1,120 @@
+html,
+body {
+  text-align: center;
+  background-image: white;
+  font-size: x-large;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+@font-face {
+  font-family: Open Sans;
+  src: url(./assets/fonts/OpenSans.ttf);
+}
+
+* {
+  font-family: Open Sans, cursive !important;
+}
+
+a {
+  color: black;
+}
+
+select,
+input,
+button {
+  font-size: medium;
+}
+
+@mixin flex($dir) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin submitButton($color) {
+  background-color: $color;
+  color: white;
+  width: 50%;
+  min-width: 100px;
+  padding: 16px;
+  cursor: pointer;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+@mixin submitButton2() {
+  padding: 16px;
+  border-radius: 6px;
+  border: none;
+  color: $third-color !important;
+  font-weight: bold;
+  width: 100%;
+  font-size: 22px;
+  background: transparent !important;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  cursor: pointer;
+}
+
+@mixin grid($row, $col, $colgap, $rowgap) {
+  display: grid;
+  grid-template-rows: $row;
+  grid-template-columns: $col;
+  row-gap: $rowgap;
+  column-gap: $colgap;
+}
+@mixin formStyle() {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  max-width: 500px;
+  padding: 32px;
+  margin: 8px;
+  row-gap: 12px;
+
+  input,
+  select {
+    font-size: 24px;
+    border-radius: 8px;
+    padding: 18px;
+    border: 1px solid lightgray;
+  }
+  button {
+    @include submitButton($second-color);
+    border-radius: 16px;
+    margin-inline: auto;
+  }
+  label {
+    font-size: 24px;
+    color: $third-color;
+    padding: 4px;
+  }
+}
+.col {
+  display: flex;
+  flex-direction: column !important;
+}
+.close {
+  padding: 0px !important;
+  background-color: transparent;
+  border: none !important;
+  margin: 0px !important;
+}
+
+@mixin buttonHover() {
+  transition: 0.2s linear;
+  color: $fourth-color !important;
+  cursor: pointer;
+}
+.logo {
+    font-family: 'Kalam', cursive !important;
+}
+
+$first-color: #e4f1fe;
+$fourth-color: #6cb1f7;
+$third-color: #354c62;
+$second-color: transparent;

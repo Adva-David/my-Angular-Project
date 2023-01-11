@@ -1,0 +1,56 @@
+@use "../../../../styles.scss" as styles;
+.card {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  border-bottom: 1px solid lightgray;
+  margin-block: 8px;
+}
+button {
+  @include styles.submitButton2();
+  width: fit-content;
+}
+
+button:hover {
+  transition: 0.2s linear;
+  color: styles.$fourth-color;
+  cursor: pointer;
+}
+
+.card .right {
+  display: flex;
+  flex-direction: column;
+}
+
+.right h3 {
+  font-weight: bold;
+}
+.right * {
+  text-align: start;
+}
+
+.right .head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.right img {
+  width: 25px;
+  height: 25px;
+  padding-inline: 16px;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.left img {
+  width: 100px;
+  height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+p {
+  padding: 0px;
+  margin: 0px;
+}

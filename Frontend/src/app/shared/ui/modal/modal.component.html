@@ -1,0 +1,46 @@
+<div class="modal_wrapper" *ngIf="modalService.modalOpen">
+  <div class="modal">
+    <div id="modal_content" #modal_content>
+      <div *ngIf="modalService.modalType === 'default'"></div>
+
+      <app-add-product
+        *ngIf="modalService.modalType === 'admin_p'"
+      ></app-add-product>
+      <div *ngIf="modalService.modalType === 'add_product'">
+        <app-add-product-cart
+          [product]="modalService.modalContent"
+        ></app-add-product-cart>
+      </div>
+      <div *ngIf="modalService.modalType === 'show_order_cart'">
+        <h1>Order Items</h1>
+        <b style="font-size: 14px"
+          >order confirmation id: {{ modalService.modalContent._id }}</b
+        >
+
+        <div class="product_card_container">
+          <div
+            *ngFor="let cartItem of modalService.modalContent.items"
+            class="product_card_order-h"
+          >
+            <img src="{{ cartItem.product.image }}" />
+            <div>
+              <label class="p-name-order-h">{{
+                cartItem.product.productName
+              }}</label>
+              <label class="p-category-order-h"
+                >Category: {{ cartItem.product.category.categoryName }}</label
+              >
+              <label class="p-stock-order-h">Stock: {{ cartItem.stock }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="modalService.modalType === 'submit_order'"></div>
+    </div>
+    <img
+      class="close"
+      (click)="modalService.closeModal()"
+      src="../../../../assets/images/close.svg"
+    />
+  </div>
+</div>

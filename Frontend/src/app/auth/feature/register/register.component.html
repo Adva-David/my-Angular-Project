@@ -1,0 +1,56 @@
+<form
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmitRegister()"
+  class="register"
+>
+  <input
+    type="text"
+    name="name"
+    formControlName="firstName"
+    placeholder="Enter First name"
+  />
+
+  <input
+    type="text"
+    name="name"
+    formControlName="lastName"
+    placeholder="Enter Last name"
+  />
+
+  <input
+    type="text"
+    name="city"
+    formControlName="city"
+    placeholder="Enter city"
+  />
+
+  <input
+    type="email"
+    name="street"
+    formControlName="street"
+    placeholder="Enter street"
+  />
+
+  <input
+    type="number"
+    name="name"
+    formControlName="passportId"
+    placeholder="Enter passport id"
+  />
+
+  <input
+    type="email"
+    name="name"
+    formControlName="email"
+    placeholder="Enter email address"
+  />
+
+  <input
+    type="password"
+    name="password"
+    formControlName="password"
+    placeholder="Enter password"
+  />
+
+  <button type="submit">Register</button>
+</form>

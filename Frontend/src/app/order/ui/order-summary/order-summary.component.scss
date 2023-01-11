@@ -1,0 +1,69 @@
+@use "../../../../styles.scss" as styles;
+.order-summary-form {
+  padding: 18px;
+  background-color: white;
+  width: 80%;
+  margin-inline: auto;
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+}
+.product_card_container {
+  max-height: 400px;
+  overflow-y: scroll;
+  margin: 12px;
+  border: 1px solid lightgray;
+}
+
+.order-summary {
+  overflow-x: hidden;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+.worker {
+  position: fixed;
+  object-fit: cover;
+  z-index: 1;
+  right: 8px;
+  height: 700px;
+  bottom: -16px;
+  transform: translateX(60px);
+  width: 700px;
+  display: none;
+  @media only screen and (min-width: 900px) {
+    display: inherit;
+  }
+}
+.worker2 {
+  position: fixed;
+  object-fit: cover;
+  height: 700px;
+  width: 700px;
+  bottom: -16px;
+  left: 8px;
+  z-index: 1;
+  display: none;
+  @media only screen and (min-width: 900px) {
+    display: inherit;
+  }
+}
+.order-summary-form button {
+  @include styles.submitButton(#354c62);
+  color: white;
+  border-radius: 32px;
+}
+
+.invoice_top {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-weight: bold;
+}
+
+.buttons_o_summary {
+  @include styles.flex("column");
+  align-items: center;
+  justify-content: center;
+  row-gap: 12px;
+}

@@ -1,0 +1,82 @@
+@use "../../../styles.scss" as styles;
+.cart_grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 100%;
+  column-gap: 32px;
+  margin-inline: auto;
+}
+
+@media only screen and (max-width: 1250px) {
+  .cart_grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 32px;
+  }
+}
+
+.left {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.left h3 {
+  text-align: end;
+  padding-inline: 32px;
+}
+.left h2 {
+  padding: 16px;
+  font-size: 32px;
+}
+
+.right h1 {
+  font-weight: bolder;
+  padding: 16px;
+}
+
+#continue_btn {
+  @include styles.submitButton(styles.$fourth-color);
+  width: 85%;
+  border-radius: 8px;
+}
+
+.right {
+  overflow-y: auto;
+  min-height: 300px;
+  border-radius: 16px;
+  position: relative;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.right .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 7.5%;
+}
+.cart_empty {
+  padding: 16px;
+}
+.cart_empty img {
+  width: 200px !important;
+  height: 200px !important;
+}
+
+.product_card_container {
+  max-height: 450px;
+  overflow-y: scroll;
+}
+
+.disabled {
+  background: gray !important;
+  pointer-events: none !important;
+}
+.clear {
+  @include styles.submitButton(styles.$third-color);
+  margin-block: 32px;
+  max-width: 150px;
+  border-radius: 8px;
+}

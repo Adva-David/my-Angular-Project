@@ -1,0 +1,47 @@
+<div corder-summary>
+  <div
+    *ngIf="orderService.viewingOrder$ | async as order"
+    class="order-summary-form"
+  >
+    <h1>Invoice</h1>
+
+    <label class="invoice_top" *ngIf="authService.user$ | async as user"
+      >For {{ user.firstName + user.lastName }}</label
+    >
+
+    <h2>Billing address:</h2>
+    <p>City: {{ order.deliveryCity }}</p>
+    <p>Street: {{ order.deliveryStreet }}</p>
+
+    <p>Shipping date:{{ toDateString(order.deliveryDate) }}</p>
+
+    <p>{{ order.orderDate }}</p>
+
+    <div *ngIf="order.cart as cart" class="cart_items">
+      <input
+        type="text"
+        (input)="queryItems($event)"
+        placeholder="Search item..."
+      />
+      <div class="product_card_container">
+        <div *ngFor="let item of cart.items">
+          <app-cart-product-card
+            [product]="item"
+            [query]="query.toLowerCase()"
+            [isOrder]="true"
+          ></app-cart-product-card>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align: end; font-weight: bold">
+      Total : {{ order.totalPrice }}
+    </p>
+    <div class="buttons_o_summary">
+      <button (click)="downloadReceipt()">Download receipt</button>
+      <button routerLink="/home">Back to shopping</button>
+    </div>
+  </div>
+  <img class="worker" src="../../../../assets/images/cartoon-worker.png" />
+  <img class="worker2" src="../../../../assets/images/cartoon-worker2.png" />
+</div>

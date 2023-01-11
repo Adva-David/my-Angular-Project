@@ -1,0 +1,7 @@
+<div class="alert" *ngIf="modalService.alertOpen">
+  <p class="{{ modalService.alertType }}">
+    <b>[{{ modalService.alertType }}]</b>
+    {{ modalService.alertContent }}
+  </p>
+  <button *ngIf="!modalService.alertAutoClose" (click)="close()">Close</button>
+</div>

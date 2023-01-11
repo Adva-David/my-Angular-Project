@@ -1,0 +1,78 @@
+@use "../../../styles.scss" as formStyles;
+
+@mixin grid() {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  grid-template-rows: 1fr;
+  min-height: auto;
+  position: relative;
+  transition: 0.25s linear;
+}
+
+@mixin sidebar() {
+  display: block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 8px;
+  border-radius: 50%;
+  position: absolute;
+  left: 16px;
+  z-index: 1000;
+}
+
+.grid_visible {
+  @include grid();
+}
+.grid_invisible {
+  @include grid();
+  grid-template-columns: 100%;
+}
+.left {
+  margin-inline: 12px;
+}
+.add_product_submit {
+  @include formStyles.submitButton2();
+  background-repeat: no-repeat;
+  padding: 6px;
+  margin: 16px;
+  width: max-content;
+  cursor: pointer;
+  border: 1px solid formStyles.$third-color;
+  overflow: hidden;
+  border-radius: 8px;
+
+  outline: none;
+}
+.add_product_submit:hover {
+  transition: 0.2s linear;
+  color: formStyles.$fourth-color;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1100px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+}
+
+.minimize_sidebar_visible {
+  @include sidebar();
+  background-image: url(../../../assets/images/minimize.png);
+}
+.minimize_sidebar_invisible {
+  @include sidebar();
+  background-image: url(../../../assets/images/maximize.png);
+}
+
+.grid_side_bar_visible {
+  transition: 0.25s linear;
+}
+
+.grid_side_bar_invisible {
+  transition: 0.25s linear;
+}

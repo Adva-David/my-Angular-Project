@@ -1,0 +1,30 @@
+<app-edit-product
+  *ngIf="editingProduct"
+  (editingEventEmitter)="cancelEdit($event)"
+  [product]="editingProduct"
+></app-edit-product>
+
+<div
+  class="admin_p_list"
+  *ngIf="productsService.showingProducts$ | async as products"
+>
+  <app-loading-spinner [visible]="products.length <= 0"></app-loading-spinner>
+  <div class="edit_card head" *ngIf="products.length > 0">
+    <label>Image</label>
+    <label>Name</label>
+    <label>Price</label>
+    <label>Category</label>
+    <label>Actions</label>
+  </div>
+
+  <div class="edit_card col" *ngFor="let p of products">
+    <div class="edit_card{{ editingProduct === p ? '_selected' : '' }}">
+      <img src="{{ p.image }}" />
+      <label>{{ p.productName }}</label>
+      <label>{{ p.price }}</label>
+      <label>{{ p.category.categoryName }}</label>
+      <button (click)="startEdit(p)">Edit</button>
+    </div>
+    <hr />
+  </div>
+</div>

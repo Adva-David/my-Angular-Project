@@ -1,0 +1,13 @@
+@use "../../../../styles.scss" as formStyles;
+form {
+  @include formStyles.formStyle();
+  margin-inline: auto;
+  margin-top: 16px;
+  padding-inline: 16px;
+
+  button {
+    color: formStyles.$third-color;
+
+    border: 1px solid lightgray;
+  }
+}

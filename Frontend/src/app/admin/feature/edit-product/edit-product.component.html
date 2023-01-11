@@ -1,0 +1,55 @@
+<div *ngIf="product">
+  <h2>Editing: {{ product.productName }}</h2>
+  <form
+    class="edit_form"
+    enctype="multipart/form-data"
+    [formGroup]="editProductForm"
+    (ngSubmit)="editProduct()"
+  >
+    <input
+      type="text"
+      [ngModel]="product.productName"
+      class="form-control"
+      placeholder="Enter product name"
+      formControlName="productName"
+      name="name"
+    />
+
+    <select
+      class="form-control"
+      formControlName="categoryName"
+      *ngIf="productService.categories$ | async as categories"
+    >
+      <option value="" selected disabled hidden>
+        {{ product.category.categoryName }}
+      </option>
+      <option
+        *ngFor="let category of categories"
+        value="{{ category.categoryName }}"
+      >
+        {{ category.categoryName }}
+      </option>
+    </select>
+
+    <input
+      type="number"
+      [ngModel]="product.price"
+      class="form-control"
+      placeholder="Enter product price"
+      formControlName="price"
+      name="price"
+    />
+    <input
+      type="file"
+      class="form-control-file"
+      name="image"
+      formControlName="image"
+      (change)="onSelectProductImage($event)"
+    />
+    <button type="submit" class="btn">Save Changes</button>
+  </form>
+  <!-- <img class="close" src="../../../../assets/images/close.svg" /> -->
+  <button class="close" (click)="close()">
+    <img src="../../../../assets/images/close.svg" />
+  </button>
+</div>

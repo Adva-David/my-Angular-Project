@@ -1,0 +1,84 @@
+@use "../../../styles.scss" as styles;
+
+.welcome {
+  overflow: hidden;
+  display: grid;
+  position: relative;
+  min-height: 100%;
+  flex-direction: row;
+  box-sizing: border-box;
+  @media only screen and (min-width: 1350px) {
+    width: 50%;
+    margin-inline: auto;
+  }
+}
+
+.welcome_btns {
+  display: grid;
+  width: 50%;
+  margin-inline: auto;
+  padding-block: 32px;
+  z-index: 9999;
+  grid-template-columns: 50% 50%;
+  @media only screen and (max-width: 860px) {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-inline: 0px;
+    justify-content: space-around;
+  }
+}
+.welcome_btns button {
+  height: fit-content;
+  font-size: 32px !important;
+}
+.logo {
+  width: 600px;
+  height: auto;
+  background-color: red;
+}
+
+.avatar {
+  transform: scale(1.3) translateY(-40px);
+  right: 20px;
+  position: absolute;
+
+  @media only screen and (max-width: 860px) {
+    display: none;
+  }
+  @media only screen and (min-width: 1350px) {
+    transform: scale(1.3) translateX(40px) translateY(-40px);
+  }
+}
+.auth_btns_bottom {
+  @include styles.submitButton2();
+  width: fit-content;
+  padding-bottom: 16px;
+  transform: translateY(-48px);
+  margin: 0px;
+}
+.auth_btns_bottom:hover {
+  transition: 0.2s linear;
+  color: styles.$fourth-color;
+}
+h1 {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 48px;
+  padding: 16px;
+  color: styles.$third-color;
+}
+
+.welcome button:nth-child(1) {
+  @include styles.submitButton(styles.$third-color);
+  color: styles.$first-color;
+  border-radius: 24px;
+  width: fit-content;
+}
+.welcome button:nth-child(2) {
+  @include styles.submitButton(styles.$fourth-color);
+  color: white;
+  border-radius: 24px;
+  width: fit-content;
+}

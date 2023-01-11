@@ -1,0 +1,83 @@
+@use "../../../styles.scss" as styles;
+
+img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border: 1px solid styles.$first-color;
+  border-radius: 16px;
+  box-sizing: border-box;
+  margin: 8px;
+}
+
+.bottom {
+  @include styles.flex(row);
+  width: 80%;
+  padding: 8px;
+  font-size: 18px;
+  justify-content: space-evenly;
+  row-gap: 8px;
+  padding-bottom: 16px;
+
+  span:nth-child(1) {
+    background-color: styles.$fourth-color;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 22px;
+  }
+  span:nth-child(2) {
+    font-size: 20px;
+    font-size: 18px;
+  }
+}
+button {
+  @include styles.submitButton2();
+}
+
+button:hover {
+  transition: 0.2s linear;
+  color: styles.$fourth-color;
+  cursor: pointer;
+}
+
+.product_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow-y: scroll;
+  border: 1px solid lightgray;
+  margin: 16px;
+  padding: 32px;
+  gap: 48px;
+  column-gap: 72px;
+  max-height: 800px;
+}
+.add_button {
+  @include styles.submitButton(white);
+  color: styles.$third-color;
+  width: max-content;
+}
+
+@media only screen and (max-width: 1250px) {
+  .product_grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 95%;
+    height: fit-content;
+  }
+}
+
+.product_wrapper {
+  width: 100%;
+  height: fit-content;
+  border-radius: 8px;
+  border: 1px solid styles.$third-color;
+}
+
+.product_card {
+  @include styles.flex(column);
+
+  h2 {
+    min-height: 75px;
+  }
+}

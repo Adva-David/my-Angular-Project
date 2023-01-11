@@ -1,0 +1,19 @@
+@use "../../../../styles.scss" as authStyles;
+
+form {
+  @include authStyles.formStyle();
+
+  button {
+    font-size: 32px;
+    color: authStyles.$fourth-color;
+    border-bottom: 1px solid lightgray;
+  }
+  button:hover {
+    transition: 0.2s linear;
+    color: white;
+    background-color: authStyles.$fourth-color;
+  }
+}
+.register {
+  margin-inline: auto;
+}

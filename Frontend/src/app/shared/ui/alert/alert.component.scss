@@ -1,0 +1,33 @@
+@use "./../../../../styles.scss" as styles;
+@keyframes alertAnimIn {
+  from {
+    margin-bottom: -200px;
+  }
+  to {
+    margin-bottom: 0px;
+  }
+}
+
+.alert {
+  position: fixed;
+  bottom: 32px;
+  background-color: styles.$fourth-color;
+  width: 15%;
+  color: white;
+  font-size: 20px;
+  line-height: 100%;
+  z-index: 9999;
+  padding: 32px;
+  border-radius: 16px;
+  text-align: start;
+  right: 32px;
+  animation: alertAnimIn 0.2s linear alternate;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.Info {
+  color: white;
+}
+.Error {
+  color: white;
+}

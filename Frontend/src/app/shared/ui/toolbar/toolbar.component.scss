@@ -1,0 +1,36 @@
+@use "../../../../styles.scss" as styles;
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  //   border-bottom: 1px solid lightgray;
+  background-color: styles.$fourth-color;
+  font-weight: bold;
+}
+
+nav a {
+  padding: 8px;
+  font-size: 24px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+.cart_nav {
+  margin-block: auto;
+  display: flex;
+}
+.cart_nav .amt {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  transform: translateX(-12px) translateY(10px);
+}
+.cart_nav img {
+  width: 25px;
+  height: 25px;
+}

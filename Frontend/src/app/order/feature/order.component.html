@@ -1,0 +1,72 @@
+<div class="checkout">
+  <div class="left" *ngIf="cartService.cart$ | async as cart">
+    <h2>Order Summary</h2>
+    <div class="product_card_container">
+      <div *ngFor="let item of cart.items">
+        <app-cart-product-card
+          [product]="item"
+          [isOrder]="true"
+        ></app-cart-product-card>
+      </div>
+    </div>
+    <h3 class="summary_text">
+      <strong>Total cart price: </strong>{{ cartService.total() }} ILS
+    </h3>
+    <h2>Please fill in shipping details:</h2>
+
+    <form
+      class="checkout_form"
+      [formGroup]="orderForm"
+      (submit)="submitOrder()"
+    >
+      <div id="creditcard">
+        <input
+          type="text"
+          placeholder="Credit card number"
+          formControlName="credit_card"
+          name="credit-card"
+        />
+      </div>
+      <div class="cf_col">
+        <input
+          type="text"
+          placeholder="Expires"
+          name="expiration"
+          formControlName="expiration"
+        />
+      </div>
+      <div class="cf_col">
+        <input type="text" placeholder="CVV" name="cvv" formControlName="cvv" />
+      </div>
+      <h2>Billing Address</h2>
+      <div>
+        <input
+          type="text"
+          placeholder="City"
+          name="city"
+          formControlName="city"
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Street"
+          name="street"
+          formControlName="street"
+        />
+      </div>
+      <div id="deliverydate">
+        <label>Delivery date</label>
+        <input
+          type="date"
+          name="date"
+          [min]="currentDate()"
+          [max]="maxDeliveryDate()"
+          formControlName="delivery_date"
+        />
+        <input type="time" name="time" formControlName="delivery_time" />
+      </div>
+      <button type="submit">Submit order</button>
+    </form>
+  </div>
+</div>

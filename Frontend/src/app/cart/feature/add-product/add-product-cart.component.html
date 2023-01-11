@@ -1,0 +1,25 @@
+<div
+  class="add_product_dialog"
+  style="display: flex; flex-direction: column; row-gap: 8px"
+>
+  <div class="medium">
+    {{ product.productName }}
+  </div>
+  <img src="{{ product.image }}" />
+  <span class="small"> Price per unit: {{ product.price }}₪</span>
+  <div
+    style="display: flex; flex-direction: row; justify-content: space-evenly"
+  >
+    <button class="add_product_submit large" (click)="onClickMinusProduct()">
+      -
+    </button>
+
+    <span id="modal_item_count" class="medium"> {{ amount }} </span>
+    <button class="add_product_submit large" (click)="onClickPlusProduct()">
+      +
+    </button>
+  </div>
+  <button class="add_product_submit" (click)="onAddProduct()">
+    Add to cart
+  </button>
+</div>

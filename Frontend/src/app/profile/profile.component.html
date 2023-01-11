@@ -1,0 +1,14 @@
+<div class="profile_card" *ngIf="authService.user$ | async as user">
+  <div class="left">
+    <h1>Order History</h1>
+    <app-order-history></app-order-history>
+  </div>
+  <div class="right">
+    <h1>My Profile</h1>
+    <div class="profile_details">
+      <label>{{ user.firstName }} </label>
+      <label>{{ user.email }}</label>
+      <label>{{ user.city + " " + user.street }}</label>
+    </div>
+  </div>
+</div>

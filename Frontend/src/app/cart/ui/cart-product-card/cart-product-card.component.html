@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="left">
+    <img src="{{ product.product.image }}" />
+  </div>
+
+  <div class="right">
+    <div class="head">
+      <h3 *ngIf="isQueried()">
+        <mark>{{ product.product.productName }}</mark>
+      </h3>
+      <h3 *ngIf="!query">{{ product.product.productName }}</h3>
+      <img
+        *ngIf="!isQueried() && !isOrder"
+        src="../../../../assets/images/icons8-trash-30.png"
+        (click)="removeCartProduct()"
+      />
+
+    </div>
+
+    <p *ngIf="!isOrder">
+      <strong>Amount </strong
+      ><button (click)="increaseCartProductAmt()">+</button> {{ product.stock }}
+      <button (click)="decreaseCartProductAmt()">-</button>
+    </p>
+    <p>
+      <strong>Category </strong> {{ product.product.category.categoryName }}
+    </p>
+    <span><strong>Price per unit </strong>{{ product.product.price }} ILS</span>
+    <span><strong>Total price </strong> {{ product.currentPayment }} ILS</span>
+  </div>
+</div>

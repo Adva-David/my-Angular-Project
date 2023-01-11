@@ -1,0 +1,37 @@
+<div *ngIf="cartService.cart$ | async as cart" class="cart_grid">
+  <div class="left">
+    <h2>My Cart</h2>
+    <div class="product_card_container">
+      <div *ngFor="let item of cart.items">
+        <app-cart-product-card
+          [product]="item"
+          [isOrder]="false"
+        ></app-cart-product-card>
+      </div>
+    </div>
+
+    <button
+      *ngIf="cart.items.length >= 1"
+      class="clear"
+      (click)="clearCart(cart.items)"
+    >
+      Clear
+    </button>
+
+    <h1>Total : {{ cartService.total() }} ILS</h1>
+    <div class="bottom">
+      <button
+        id="continue_btn"
+        class="{{ cart.items.length < 1 ? 'disabled' : 'enabled' }}"
+        routerLink="/order"
+      >
+        Continue to order
+      </button>
+      <img src="assets/images/credit-card.png" />
+    </div>
+  </div>
+</div>
+<div class="cart_empty" *ngIf="!cartService.cart$.value">
+  <img src="assets/images/empty-bag.png" />
+  <h1>Cart is empty! add items in order to view cart</h1>
+</div>

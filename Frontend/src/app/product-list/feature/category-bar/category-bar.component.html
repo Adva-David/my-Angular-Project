@@ -1,0 +1,9 @@
+<div
+  class="category-bar"
+  *ngIf="productService.categories$ | async as categories"
+>
+  <div *ngFor="let category of categories" class="category_item">
+    <input type="checkbox" (change)="onCategoryChanged($event, category)" />
+    <label>{{ category.categoryName }}</label>
+  </div>
+</div>

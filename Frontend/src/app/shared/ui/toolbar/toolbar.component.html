@@ -1,0 +1,7 @@
+<nav class="fourth-color">
+  <a routerLink="home">Products</a>
+  <a routerLink="profile">Profile</a>
+
+  <a *ngIf="!authService.isLoggedIn()" routerLink="auth">Log in</a>
+  <a *ngIf="authService.isLoggedIn()" (click)="authService.logOut()">Log out</a>
+</nav>

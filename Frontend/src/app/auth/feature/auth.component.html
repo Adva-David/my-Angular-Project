@@ -1,0 +1,21 @@
+<img src="../../../assets/images/logo.png" class="logo">
+<app-login *ngIf="showingPage === 'login'"></app-login>
+<app-register *ngIf="showingPage === 'register'"></app-register>
+<div class="welcome" *ngIf="showingPage === 'welcome'">
+  <div class="welcome_btns">
+    <button (click)="toRegister()">Register</button>
+    <button (click)="toLogin()">Login</button>
+  </div>
+  <img class="avatar" src="../../../assets/images//cartoon-customer.png" />
+</div>
+<button
+  class="auth_btns_bottom"
+  *ngIf="showingPage !== 'welcome'"
+  (click)="showingPage === 'login' ? toRegister() : toLogin()"
+>
+  {{
+    showingPage === "login"
+      ? "Don't have an account? Register now"
+      : "Already have an account? Login now"
+  }}
+</button>

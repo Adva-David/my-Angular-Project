@@ -1,0 +1,26 @@
+<div
+  *ngIf="authService.user$ | async as user"
+  class="grid_{{ side_bar_visibility }}"
+>
+  <div
+    *ngIf="!user.admin"
+    class="minimize_sidebar_{{ side_bar_visibility }}"
+    (click)="toggleSideBar()"
+  ></div>
+  <div class="grid_side_bar_{{ side_bar_visibility }}">
+    <div class="left" *ngIf="user.admin">
+      <button class="add_product_submit" [routerLink]="['/admin']">
+        Admin Panel
+      </button>
+      <button class="add_product_submit" (click)="openAddProduct()">
+        Add Product
+      </button>
+      <app-cart></app-cart>
+    </div>
+
+    <div *ngIf="!user.admin && isSideBarVisible()" class="left">
+      <app-cart></app-cart>
+    </div>
+  </div>
+  <app-product-list></app-product-list>
+</div>
