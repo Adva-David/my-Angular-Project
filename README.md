@@ -6,8 +6,8 @@ The subjects applied in this project are:
 client:
 
 HTML + SCSS
- *HTML5 Structure
- *Angular
+ -HTML5 Structure
+ -Angular
 
 Backend :
 
