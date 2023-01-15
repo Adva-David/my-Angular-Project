@@ -7,6 +7,7 @@ client:
 
 HTML + SCSS
 - HTML5 Structure
+
 -Angular
 
 Backend :
