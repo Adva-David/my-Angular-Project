@@ -5,9 +5,10 @@ The subjects applied in this project are:
 
 client:
 
- HTML + SCSS
+HTML + SCSS
 - HTML5 Structure
 - scss design
+
  Angular
  
 Backend :
