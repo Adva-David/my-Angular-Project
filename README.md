@@ -9,7 +9,7 @@ HTML + SCSS
 - HTML5 Structure
 - scss design
 
- Angular
+ - Angular
  
 Backend :
 
